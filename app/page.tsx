@@ -1,103 +1,141 @@
-import Image from "next/image";
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-paper">
+      <div className="container mx-auto px-4 py-8 max-w-3xl">
+        <header className="mb-12 border-b border-neutral-200 pb-4">
+          <h1 className="text-4xl font-typewriter mb-2">Your Name</h1>
+          <p className="text-neutral-700 font-typewriter">Notes on my work and thoughts</p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <nav className="mt-8">
+            <ul className="flex space-x-8 font-typewriter">
+              <li>
+                <Link
+                  href="/projects"
+                  className="text-lg text-neutral-800 hover:text-neutral-600 pb-1 border-b-2 border-neutral-300"
+                >
+                  Projects
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blogs"
+                  className="text-lg text-neutral-800 hover:text-neutral-600 pb-1 border-b-2 border-neutral-300"
+                >
+                  Blog
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+
+        <main className="space-y-16">
+          {/* About Section */}
+          <section id="about" className="space-y-4">
+            <h2 className="text-2xl font-typewriter border-b border-neutral-200 pb-2">About Me</h2>
+            <div className="font-typewriter leading-relaxed space-y-4 text-neutral-800">
+              <p>
+                Hello there. I'm a developer with a passion for building thoughtful digital experiences. My approach
+                combines technical expertise with a deep appreciation for simplicity and clarity.
+              </p>
+              <p>
+                When I'm not writing code, you can find me exploring new technologies, contributing to open-source
+                projects, or enjoying the outdoors.
+              </p>
+            </div>
+          </section>
+
+          {/* Recent Projects Preview */}
+          <section className="space-y-4">
+            <div className="flex items-center justify-between border-b border-neutral-200 pb-2">
+              <h2 className="text-2xl font-typewriter">Recent Projects</h2>
+              <Link
+                href="/projects"
+                className="font-typewriter text-sm text-neutral-700 hover:text-neutral-900 flex items-center"
+              >
+                View All <ArrowRight className="ml-1 h-3 w-3" />
+              </Link>
+            </div>
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-xl font-typewriter">Project One</h3>
+                <p className="font-typewriter text-neutral-800">
+                  A responsive web application built with React and Next.js.
+                </p>
+                <Link
+                  href="/projects/project-one"
+                  className="inline-block font-typewriter text-neutral-800 underline decoration-dotted underline-offset-4 hover:text-neutral-600"
+                >
+                  Read More →
+                </Link>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-xl font-typewriter">Project Two</h3>
+                <p className="font-typewriter text-neutral-800">
+                  A full-stack e-commerce solution with product management.
+                </p>
+                <Link
+                  href="/projects/project-two"
+                  className="inline-block font-typewriter text-neutral-800 underline decoration-dotted underline-offset-4 hover:text-neutral-600"
+                >
+                  Read More →
+                </Link>
+              </div>
+            </div>
+          </section>
+
+          {/* Recent Blog Posts Preview */}
+          <section className="space-y-4">
+            <div className="flex items-center justify-between border-b border-neutral-200 pb-2">
+              <h2 className="text-2xl font-typewriter">Recent Posts</h2>
+              <Link
+                href="/blogs"
+                className="font-typewriter text-sm text-neutral-700 hover:text-neutral-900 flex items-center"
+              >
+                View All <ArrowRight className="ml-1 h-3 w-3" />
+              </Link>
+            </div>
+            <div className="space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-xl font-typewriter">Getting Started with Next.js</h3>
+                <p className="text-sm font-typewriter text-neutral-600">March 15, 2023</p>
+                <p className="font-typewriter text-neutral-800">
+                  An introduction to building modern web applications with Next.js.
+                </p>
+                <Link
+                  href="/blogs/getting-started-with-nextjs"
+                  className="inline-block font-typewriter text-neutral-800 underline decoration-dotted underline-offset-4 hover:text-neutral-600"
+                >
+                  Read More →
+                </Link>
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="text-xl font-typewriter">The Power of TypeScript</h3>
+                <p className="text-sm font-typewriter text-neutral-600">February 28, 2023</p>
+                <p className="font-typewriter text-neutral-800">
+                  Why TypeScript is becoming essential for modern JavaScript development.
+                </p>
+                <Link
+                  href="/blogs/the-power-of-typescript"
+                  className="inline-block font-typewriter text-neutral-800 underline decoration-dotted underline-offset-4 hover:text-neutral-600"
+                >
+                  Read More →
+                </Link>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <footer className="mt-16 pt-4 border-t border-neutral-200 font-typewriter text-neutral-600 text-sm">
+          <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+          <p className="mt-1">Handcrafted with care.</p>
+        </footer>
+      </div>
     </div>
-  );
+  )
 }
+
